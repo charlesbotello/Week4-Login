@@ -59,12 +59,18 @@ class Server {
     }
     
     func updatePassword(current: String, update: String) -> (Bool, String) {
-        
         if let userFound = self.loggedInUser {
-            registeredUsers[userFound] = update
-            return (true, "Password has been updated")
+            if update.count >= requirePasswordLength && registeredUsers[userFound] == current {
+                registeredUsers[userFound] = update
+                return (true, "Password has been updated")
+            } else if registeredUsers[userFound] != current {
+                return(false, "Current password is invalid")
+            } else {
+                return(false, "New password is too short or empty")
+            }
+            
         } else {
-            return (false, "Current password is invalid")
+            return (false, "Unknown error")
         }
         
     }

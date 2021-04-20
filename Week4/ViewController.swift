@@ -47,6 +47,11 @@ class ViewController: UIViewController {
         let loginResponse :(success: Bool, message: String) = server.login(userName: userNameTextfield.text, password: passwordTextField.text)
         if loginResponse.success {
             responseLabel.textColor = .blue
+            userNameLabel.alpha = 1
+            currentPasswordTextField.alpha = 1
+            newPasswordTextField.alpha = 1
+            userNameLabel.text = server.loggedInUser
+            passwordButton.alpha = 1
             
         } else {
             responseLabel.textColor = .red
@@ -63,6 +68,9 @@ class ViewController: UIViewController {
         
         if logoutResponse.success {
             responseLabel.textColor = .blue
+            userNameLabel.alpha = 0
+            currentPasswordTextField.alpha = 0
+            newPasswordTextField.alpha = 0
         } else {
             responseLabel.textColor = .red
         }
@@ -86,6 +94,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func updatePasswordButtonPressed(_ sender: UIButton) {
+        let updatePasswordResponse :(success: Bool, message: String) = server.updatePassword(current: currentPasswordTextField.text!, update: newPasswordTextField.text!)
+        
+        if updatePasswordResponse.success {
+            responseLabel.textColor = .blue
+        } else {
+            responseLabel.textColor = .red
+        }
+        responseLabel.text = updatePasswordResponse.message
     }
 }
 

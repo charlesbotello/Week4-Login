@@ -53,15 +53,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-fG-t1S">
-                                <rect key="frame" x="104" y="421" width="207" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.15038566319999999" blue="0.1293553664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rrV-rL-Bt7"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzJ-Ks-2gR">
                                 <rect key="frame" x="104" y="501" width="207" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -95,6 +86,15 @@
                                 <state key="normal" title="Change Password"/>
                                 <connections>
                                     <action selector="updatePasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2b6-Lb-6l7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-fG-t1S">
+                                <rect key="frame" x="104" y="405" width="207" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.15038566319999999" blue="0.1293553664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rrV-rL-Bt7"/>
                                 </connections>
                             </button>
                         </subviews>
