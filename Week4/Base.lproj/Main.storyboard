@@ -69,13 +69,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MY-V6-YuX">
+                                <rect key="frame" x="190" y="564" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="current password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A97-qr-Q5S">
+                                <rect key="frame" x="60" y="607" width="138" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K24-70-N4W">
+                                <rect key="frame" x="221" y="607" width="138" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEL-Va-Gjj">
+                                <rect key="frame" x="104" y="659" width="207" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <action selector="updatePasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2b6-Lb-6l7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="currentPasswordTextField" destination="A97-qr-Q5S" id="kZK-5U-3tk"/>
+                        <outlet property="newPasswordTextField" destination="K24-70-N4W" id="5J9-S8-OO3"/>
+                        <outlet property="passwordButton" destination="GEL-Va-Gjj" id="I2F-A6-eKR"/>
                         <outlet property="passwordTextField" destination="d8O-5I-0bm" id="OPj-Xe-lXM"/>
                         <outlet property="responseLabel" destination="DzJ-Ks-2gR" id="yn2-fN-pDI"/>
+                        <outlet property="userNameLabel" destination="6MY-V6-YuX" id="lhe-dN-rPr"/>
                         <outlet property="userNameTextfield" destination="uAu-SJ-eey" id="emO-BE-Rwy"/>
                     </connections>
                 </viewController>

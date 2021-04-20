@@ -62,4 +62,19 @@ class ServerTests: XCTestCase {
         //assert
         XCTAssertTrue(isUserLogOut.0, "The logout() function should have return TRUE, but return FALSE")
     }
+    
+    func testServerModel_WhenValidUserUpdatesPassword_ShouldReturnTrue() {
+        //arrange
+        var sut: Server!
+        sut = Server()
+        sut.createNewUser(userName: "user", password: "Pass1234")
+        sut.login(userName: "user", password: "Pass1234")
+        let currentPassword = sut.registeredUsers[sut.loggedInUser!]
+        
+        //act
+        let isUserPasswordUpdated = sut.updatePassword(current: currentPassword!, update: "Pass1234")
+        
+        //assert
+        XCTAssertTrue(isUserPasswordUpdated.0, "the updatePassword() should have return TRUE, but return FALSE")
+    }
 }

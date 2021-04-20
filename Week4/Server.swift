@@ -56,7 +56,16 @@ class Server {
             return(false, "No user found, already logged out")
         }
         
+    }
+    
+    func updatePassword(current: String, update: String) -> (Bool, String) {
         
+        if let userFound = self.loggedInUser {
+            registeredUsers[userFound] = update
+            return (true, "Password has been updated")
+        } else {
+            return (false, "Current password is invalid")
+        }
         
     }
 }

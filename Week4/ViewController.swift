@@ -19,6 +19,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var responseLabel: UILabel!
     
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var currentPasswordTextField: UITextField!
+    
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    
+    @IBOutlet weak var passwordButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -27,7 +34,11 @@ class ViewController: UIViewController {
         responseLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         responseLabel.numberOfLines = 1
         
-        // Do any additional setup after loading the view.
+        userNameLabel.alpha = 0
+        currentPasswordTextField.alpha = 0
+        newPasswordTextField.alpha = 0
+        
+        passwordButton.alpha = 0
         
         
     }
@@ -73,5 +84,8 @@ class ViewController: UIViewController {
         print(passwordTextField.text!)
     }
     
+    
+    @IBAction func updatePasswordButtonPressed(_ sender: UIButton) {
+    }
 }
 
