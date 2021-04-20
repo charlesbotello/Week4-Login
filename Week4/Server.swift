@@ -46,4 +46,17 @@ class Server {
         }
         return(false, "Username or Password is not present")
     }
+    
+    func logout() -> (Bool, String) {
+
+        if self.loggedInUser != nil {
+            self.loggedInUser = nil
+            return(true, "User logged out successfully")
+        } else {
+            return(false, "No user found, already logged out")
+        }
+        
+        
+        
+    }
 }

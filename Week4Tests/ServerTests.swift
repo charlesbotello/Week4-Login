@@ -51,4 +51,15 @@ class ServerTests: XCTestCase {
         XCTAssertTrue(checkUser.0, "The login() should have return TRUE for valid username and password, but returned FALSE")
     }
 
+    func testServerModel_WhenLogoutUserFoundAndSessionIsEnded_ShouldReturnTrue() {
+        //arrange
+        var sut: Server!
+        sut = Server()
+        sut.createNewUser(userName: "user", password: "Pass1234")
+        sut.login(userName: "user", password: "Pass1234")
+        //act
+        let isUserLogOut = sut.logout()
+        //assert
+        XCTAssertTrue(isUserLogOut.0, "The logout() function should have return TRUE, but return FALSE")
+    }
 }

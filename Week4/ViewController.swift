@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     var server: Server = Server()
+    var loginTitle: String?
+    
     
     @IBOutlet weak var userNameTextfield: UITextField!
     
@@ -17,24 +19,45 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var responseLabel: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        responseLabel.frame = CGRect(x: 7, y: 500, width: 400, height: 100)
+        responseLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        responseLabel.numberOfLines = 1
+        
         // Do any additional setup after loading the view.
         
         
     }
 
-    @IBAction func loginButtonPressed(_ sender: Any) {
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
         let loginResponse :(success: Bool, message: String) = server.login(userName: userNameTextfield.text, password: passwordTextField.text)
         if loginResponse.success {
+            responseLabel.textColor = .blue
             
+        } else {
+            responseLabel.textColor = .red
+        }
+    
+        responseLabel.text = loginResponse.message
+        
+        print(userNameTextfield.text!)
+    }
+    
+    
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        let logoutResponse :(success: Bool, message: String) = server.logout()
+        
+        if logoutResponse.success {
             responseLabel.textColor = .blue
         } else {
             responseLabel.textColor = .red
         }
-        responseLabel.text = loginResponse.message
+        responseLabel.text = logoutResponse.1
         
-        print(userNameTextfield.text!)
+        
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
