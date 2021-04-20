@@ -9,13 +9,19 @@ import XCTest
 @testable import Week4
 
 class ServerTests: XCTestCase {
+    var sut: Server!
+    
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = Server()
+        sut.createNewUser(userName: "user", password: "Pass1234")
+        
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.sut = nil
     }
 
     func testExample() throws {
@@ -42,35 +48,25 @@ class ServerTests: XCTestCase {
     
     func testServerModel_WhenLoginWithCorrectCredential_ShouldReturnTrue() {
         //arrange
-        var sut: Server!
-        sut = Server()
-        sut.createNewUser(userName: "user", password: "Pass1234")
         //act
-        let checkUser = sut.login(userName: "user", password: "Pass1234")
+        let checkUser = self.sut.login(userName: "user", password: "Pass1234")
         //assert
         XCTAssertTrue(checkUser.0, "The login() should have return TRUE for valid username and password, but returned FALSE")
     }
 
     func testServerModel_WhenLogoutUserFoundAndSessionIsEnded_ShouldReturnTrue() {
         //arrange
-        var sut: Server!
-        sut = Server()
-        sut.createNewUser(userName: "user", password: "Pass1234")
-        sut.login(userName: "user", password: "Pass1234")
+        self.sut.login(userName: "user", password: "Pass1234")
         //act
-        let isUserLogOut = sut.logout()
+        let isUserLogOut = self.sut.logout()
         //assert
         XCTAssertTrue(isUserLogOut.0, "The logout() function should have return TRUE, but return FALSE")
     }
     
     func testServerModel_WhenValidUserUpdatesPassword_ShouldReturnTrue() {
         //arrange
-        var sut: Server!
-        sut = Server()
-        sut.createNewUser(userName: "user", password: "Pass1234")
-        sut.login(userName: "user", password: "Pass1234")
+        self.sut.login(userName: "user", password: "Pass1234")
         let currentPassword = sut.registeredUsers[sut.loggedInUser!]
-        
         //act
         let isUserPasswordUpdated = sut.updatePassword(current: currentPassword!, update: "Pass1234")
         
